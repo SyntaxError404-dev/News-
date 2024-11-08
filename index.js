@@ -9,6 +9,7 @@ app.use(cors());
 
 const API_KEY = "65245708a11832244aaac8ccd884ab56";
 const BASE_URL = "http://api.mediastack.com/v1/news";
+const robotImageUrl = "https://i.ibb.co/tQ30VWD/image.jpg";
 
 app.get('/news', async (req, res) => {
     let queryParams = {
@@ -67,7 +68,8 @@ app.get('/news', async (req, res) => {
             title: article.title,
             source: article.source,
             published: new Date(article.published_at).toLocaleString(),
-            url: article.url
+            url: article.url,
+            imageUrl: robotImageUrl
         }));
 
         res.json({ news: newsData });
